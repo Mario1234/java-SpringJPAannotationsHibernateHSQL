@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScans(value = { @ComponentScan("comun"), @ComponentScan("usuario.dao"),
+@ComponentScans(value = { @ComponentScan("usuario.dao"),
       @ComponentScan("usuario.bo") })
 public class ConfiguracionAplicacion {
 	@Bean
@@ -21,7 +21,7 @@ public class ConfiguracionAplicacion {
 	}
 
 	@Bean
-	public JpaTransactionManager dameAdministradorTransaccionesJPA() {
+	public JpaTransactionManager geJpaTransactionManager() {
 		JpaTransactionManager administradorTransacciones = new JpaTransactionManager();
 		administradorTransacciones.setEntityManagerFactory(dameAdministradorEntidadesLocal().getObject());
 		return administradorTransacciones;
